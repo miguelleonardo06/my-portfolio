@@ -1,21 +1,27 @@
 import { ModeToggle } from "@/components/mode-toggle";
+import { Link } from "@tanstack/react-router";
+import { MenuListType } from "@/types";
 export function TopNavbar() {
-  const menuList = [
+  const menuList: MenuListType[] = [
     {
       label: "Home",
       icon: "Home",
+      route: "/#",
     },
     {
       label: "Personal",
       icon: "Personal",
+      route: "/personal",
     },
     {
       label: "Tech Stack",
       icon: "Tech",
+      route: "/#",
     },
     {
       label: "About",
       icon: "About",
+      route: "/#",
     },
   ];
   return (
@@ -29,9 +35,9 @@ export function TopNavbar() {
         </div>
         <ul className="*:text-sm flex gap-10">
           {menuList.map((menu) => (
-            <li key={menu.label}>
+            <Link to={menu.route} key={menu.label}>
               <a href="">{menu.label}</a>
-            </li>
+            </Link>
           ))}
         </ul>
       </nav>

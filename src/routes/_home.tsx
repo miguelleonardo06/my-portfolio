@@ -12,7 +12,7 @@ function HomeLayout() {
 
   return (
     <SidebarProvider>
-      <main className="w-full h-screen p-4 sm:px-48 sm:py-5 overflow-hidden">
+      <main className="w-full h-screen p-4 sm:px-48 sm:py-5">
         {isDesktopLaptop && <TopNavbar />}
         {!isDesktopLaptop && (
           <>
