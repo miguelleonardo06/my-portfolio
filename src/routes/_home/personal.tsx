@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import myPicture from "@/assets/miguel_reshape.png";
 import { Icons } from "@/components/icons";
 import {
   Card,
@@ -8,11 +7,23 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { OverviewInfoType } from "@/types/";
+import { SlideShowCarousel } from "@/components/slideShowCarousel";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+
 export const Route = createFileRoute("/_home/personal")({
   component: PersonalPage,
 });
 
 function PersonalPage() {
+  const [isModalOpen, setModalOpen] = useState<boolean>(false);
+
   function overviewInfo({ title, body, icon }: OverviewInfoType) {
     const IconComponent = Icons[icon as keyof typeof Icons];
 
@@ -23,19 +34,32 @@ function PersonalPage() {
             {IconComponent && <IconComponent height="18px" width="18px" />}
             {title}
           </CardTitle>
-          <CardDescription className="font-thin">{body}</CardDescription>
+          <CardDescription className="font-thin inline">
+            <p>{body.substring(1, 180) + "..."}</p>
+            <Button
+              className="sm:mt-2"
+              onClick={() => {
+                setModalOpen(!isModalOpen);
+              }}
+            >
+              See More
+            </Button>
+          </CardDescription>
         </CardContent>
+        {isModalOpen && (
+          <SeeMoreModal
+            isModalOpen={isModalOpen}
+            setModalOpen={setModalOpen}
+            title={title}
+            body={body}
+          />
+        )}
       </Card>
     );
   }
   return (
     <main className="h-full w-full grid sm:grid-cols-2 py-10">
-      <div className="bg-primary rounded-xl h-[100%] relative">
-        <img
-          src={myPicture}
-          className="absolute left-[20%] min-h-full max-h-[100%]"
-        />
-      </div>
+      <SlideShowCarousel slideShowImages={["myPicture", "myPicture2"]} />
       <div className="pl-4 flex-col space-y-4">
         <div>
           {overviewInfo({
@@ -43,7 +67,7 @@ function PersonalPage() {
             body: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
             quos! Velit impedit eum, debitis mollitia sapiente labore
             voluptatem, rerum voluptatibus a voluptate eos. Ipsum rerum placeat
-            ipsa! Beatae, placeat eligendi.`,
+            ipsa! Beatae, placeat eligendi.... `,
             icon: "circleUser",
           })}
         </div>
@@ -69,5 +93,27 @@ function PersonalPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+type SeeMoreModalProp = {
+  isModalOpen: boolean;
+  setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  title: string;
+  body: string;
+};
+function SeeMoreModal({
+  isModalOpen,
+  setModalOpen,
+  title,
+  body,
+}: SeeMoreModalProp) {
+  return (
+    <Dialog open={isModalOpen} onOpenChange={setModalOpen}>
+      <DialogContent>
+        <DialogTitle>{title}</DialogTitle>
+        <DialogDescription>{body}</DialogDescription>
+      </DialogContent>
+    </Dialog>
   );
 }
