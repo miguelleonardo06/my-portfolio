@@ -22,10 +22,11 @@ export const Route = createFileRoute("/_home/personal")({
 });
 
 function PersonalPage() {
-  const [isModalOpen, setModalOpen] = useState<boolean>(false);
+  const [openModalKey, setOpenModalKey] = useState<string | null>(null);
 
   function overviewInfo({ title, body, icon }: OverviewInfoType) {
     const IconComponent = Icons[icon as keyof typeof Icons];
+    const isModalOpen = openModalKey === title;
 
     return (
       <Card className="py-2">
@@ -39,21 +40,20 @@ function PersonalPage() {
             <Button
               className="sm:mt-2"
               onClick={() => {
-                setModalOpen(!isModalOpen);
+                setOpenModalKey(title);
               }}
             >
               See More
             </Button>
           </CardDescription>
         </CardContent>
-        {isModalOpen && (
-          <SeeMoreModal
-            isModalOpen={isModalOpen}
-            setModalOpen={setModalOpen}
-            title={title}
-            body={body}
-          />
-        )}
+
+        <SeeMoreModal
+          isModalOpen={isModalOpen}
+          setModalOpen={() => setOpenModalKey(null)}
+          title={title}
+          body={body}
+        />
       </Card>
     );
   }
