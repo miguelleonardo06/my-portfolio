@@ -16,7 +16,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-
+import { MoreAboutMe } from "@/components/more-about-me";
 export const Route = createFileRoute("/_home/personal")({
   component: PersonalPage,
 });
@@ -58,39 +58,44 @@ function PersonalPage() {
     );
   }
   return (
-    <main className="h-full w-full grid sm:grid-cols-2 py-10">
-      <SlideShowCarousel slideShowImages={["myPicture", "myPicture2"]} />
-      <div className="pl-4 flex-col space-y-4">
-        <div>
-          {overviewInfo({
-            title: "My Background",
-            body: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
+    <main className="h-full w-full py-10">
+      <div className=" grid sm:grid-cols-2">
+        <SlideShowCarousel slideShowImages={["myPicture", "myPicture2"]} />
+        <div className="pl-4 flex-col space-y-4">
+          <div>
+            {overviewInfo({
+              title: "My Background",
+              body: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
             quos! Velit impedit eum, debitis mollitia sapiente labore
             voluptatem, rerum voluptatibus a voluptate eos. Ipsum rerum placeat
             ipsa! Beatae, placeat eligendi.... `,
-            icon: "circleUser",
-          })}
-        </div>
-        <div>
-          {overviewInfo({
-            title: "My Education",
-            body: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
+              icon: "circleUser",
+            })}
+          </div>
+          <div>
+            {overviewInfo({
+              title: "My Education",
+              body: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
             quos! Velit impedit eum, debitis mollitia sapiente labore
             voluptatem, rerum voluptatibus a voluptate eos. Ipsum rerum placeat
             ipsa! Beatae, placeat eligendi.`,
-            icon: "bookOpenText",
-          })}
-        </div>
-        <div>
-          {overviewInfo({
-            title: "My Dream",
-            body: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
+              icon: "bookOpenText",
+            })}
+          </div>
+          <div>
+            {overviewInfo({
+              title: "My Dream",
+              body: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
             quos! Velit impedit eum, debitis mollitia sapiente labore
             voluptatem, rerum voluptatibus a voluptate eos. Ipsum rerum placeat
             ipsa! Beatae, placeat eligendi.`,
-            icon: "cloud",
-          })}
+              icon: "cloud",
+            })}
+          </div>
         </div>
+      </div>
+      <div className="mt-3">
+        <MoreAboutMe />
       </div>
     </main>
   );
