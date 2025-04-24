@@ -16,7 +16,7 @@ export function TopNavbar() {
     {
       label: "Tech Stack",
       icon: "Tech",
-      route: "/#",
+      route: "/tech-stack",
     },
     {
       label: "About",

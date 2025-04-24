@@ -66,8 +66,8 @@ export function MoreAboutMe() {
           {aboutMeMock
             .filter((aboutMe) => aboutMe.category == "Project")
             .map((info, index) => (
-              <Card className="py-2" key={index}>
-                <CardContent>
+              <Card className="pt-6 pb-2" key={index}>
+                <CardContent className="space-y-2">
                   <CardTitle>{info.title}</CardTitle>
                   <CardDescription>{info.body}</CardDescription>
                 </CardContent>
@@ -80,7 +80,7 @@ export function MoreAboutMe() {
           {aboutMeMock
             .filter((aboutMe) => aboutMe.category == "Hobby")
             .map((info, index) => (
-              <Card className="py-2" key={index}>
+              <Card className="pt-6 pb-2" key={index}>
                 <CardContent>
                   <CardTitle>{info.title}</CardTitle>
                   <CardDescription>{info.body}</CardDescription>
@@ -94,7 +94,7 @@ export function MoreAboutMe() {
           {aboutMeMock
             .filter((aboutMe) => aboutMe.category == "Talent")
             .map((info, index) => (
-              <Card className="py-2" key={index}>
+              <Card className="pt-6 pb-2" key={index}>
                 <CardContent>
                   <CardTitle>{info.title}</CardTitle>
                   <CardDescription>{info.body}</CardDescription>
