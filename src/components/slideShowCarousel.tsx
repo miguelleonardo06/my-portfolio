@@ -6,13 +6,19 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import { Pictures } from "@/components/pictures";
-
+import Autoplay from "embla-carousel-autoplay";
 type slideShowCarouselProps = {
   slideShowImages: string[];
 };
 export function SlideShowCarousel({ slideShowImages }: slideShowCarouselProps) {
   return (
-    <Carousel>
+    <Carousel
+      plugins={[
+        Autoplay({
+          delay: 3000,
+        }),
+      ]}
+    >
       <CarouselPrevious className="absolute left-2  z-20" />
       <CarouselContent className="h-min">
         {slideShowImages.map((image, index) => {
@@ -21,7 +27,7 @@ export function SlideShowCarousel({ slideShowImages }: slideShowCarouselProps) {
           return (
             <CarouselItem key={index}>
               <div className="bg-primary rounded-xl h-screen flex justify-center">
-                <img src={picture} className="object-cover h-full" />
+                <img src={picture} className="object-cover h-full rounded-xl" />
               </div>
             </CarouselItem>
           );
