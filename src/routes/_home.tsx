@@ -23,7 +23,7 @@ function HomeLayout() {
             <AppSideBar /> <SidebarTrigger />
           </>
         )}
-        <div className="p-4 sm:px-10 md:px-20 lg:px-48">
+        <div className="p-4 sm:py-12 sm:px-10 md:px-20 lg:px-48">
           <Outlet />
         </div>
       </main>

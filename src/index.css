@@ -81,6 +81,13 @@
 .fancy-font {
   font-family: fancy;
 }
+@font-face {
+  font-family: headers;
+  src: url("@/assets/font/HennyPenny-Regular.ttf");
+}
+.header-font {
+  font-family: headers;
+}
 @layer base {
   * {
     @apply border-border;
