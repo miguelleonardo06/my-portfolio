@@ -29,7 +29,7 @@ export function ModeToggle() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button className="rounded-full">
+        <Button className="rounded-full w-fit">
           <Moon height="17px" width="17px" />
         </Button>
       </PopoverTrigger>

@@ -3,6 +3,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { TechStackIcons } from "@/components/icons";
 import { TechStackHandler } from "@/components/tech-stacks-comp";
 import { TechStackType } from "@/types/index";
+import { Icons } from "@/components/icons";
+import { Button } from "@/components/ui/button";
+
 export const Route = createFileRoute("/_home/tech-stack")({
   component: TechStackPage,
 });
@@ -31,6 +34,12 @@ const mockTechStackApi: TechStackType[] = [
     icon: "tailWindIcon",
     category: "front-end",
     body: "I used Tailwind CSS for styling this website. I am comfortable with utility-first styling and can manage responsive design effectively using Tailwind's built-in features.",
+  },
+  {
+    tech_name: "Shadncn UI",
+    icon: "shadcnIcon",
+    category: "front-end",
+    body: "I am knowledgeable in creating reusable component with shadcn UI and make reusable forms and fields with it.",
   },
   {
     tech_name: "Git Hub",
@@ -87,6 +96,57 @@ function TechStackPage() {
       </Card>
       <div>
         <TechStackHandler techData={mockTechStackApi} />
+      </div>
+      <div
+        className="w-full py-10 px-10 bg-primary mt-12 absolute left-0"
+        id="about_section"
+      >
+        <h1 className="text-slate-50 font-bold text-3xl dark:text-black">
+          FOR INQURIES
+        </h1>
+        <p className="text-muted-foreground">
+          You can contact me with these platform:
+        </p>
+        <div className="mt-4 flex gap-2">
+          <a href="https://www.facebook.com/miguel.leonaleudo" target="_blank">
+            <Button
+              variant="outline"
+              className="hover:bg-[#1877F2] outline-none border-none *:hover:text-white  *:hover:animate-bounce "
+            >
+              <Icons.facebook />
+            </Button>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/miguel-leonardo-226a41346/"
+            target="_blank"
+          >
+            <Button
+              variant="outline"
+              className="hover:bg-[#0a66c2] outline-none border-none *:hover:text-white  *:hover:animate-bounce "
+            >
+              <Icons.linkin />
+            </Button>
+          </a>
+        </div>
+        <p className="mt-3 text-muted-foreground">More options:</p>
+        <div className="my-2 grid sm:flex gap-4">
+          <div className="flex items-center gap-2">
+            <div className="p-2 rounded-full bg-white dark:bg-black border w-fit *:hover:animate-ping">
+              <Icons.phone height="16px" width="16px" />
+            </div>
+            <span className="text-white dark:text-black text-sm font-thin">
+              0927 521 0697
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="p-2 rounded-full bg-white dark:bg-black border w-fit *:hover:animate-ping">
+              <Icons.mail height="16px" width="16px" />
+            </div>
+            <span className="text-white dark:text-black text-sm font-thin">
+              miguelleonardo.basc@gmail.com
+            </span>
+          </div>
+        </div>
       </div>
     </main>
   );

@@ -9,29 +9,15 @@ import {
   SidebarMenuItem,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { Button } from "./ui/button";
+import { ModeToggle } from "./mode-toggle";
+import { menuList } from "@/mock/navigation";
 export function AppSideBar() {
-  const menuList = [
-    {
-      label: "Home",
-      icon: "Home",
-    },
-    {
-      label: "Personal",
-      icon: "Personal",
-    },
-    {
-      label: "Tech Stack",
-      icon: "Tech",
-    },
-    {
-      label: "About",
-      icon: "About",
-    },
-  ];
   return (
     <Sidebar>
-      <SidebarTrigger />
+      <div className="flex justify-between my-4 mr-2">
+        <SidebarTrigger />
+        <ModeToggle />
+      </div>
       <SidebarHeader>Mig's Dev</SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -39,7 +25,9 @@ export function AppSideBar() {
             <SidebarMenu>
               {menuList.map((menu) => (
                 <SidebarMenuItem key={menu.label}>
-                  <SidebarMenuButton>{menu.label}</SidebarMenuButton>
+                  <SidebarMenuButton asChild>
+                    <a href={menu.route}>{menu.label}</a>
+                  </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>

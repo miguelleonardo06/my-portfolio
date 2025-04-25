@@ -1,33 +1,12 @@
 import { ModeToggle } from "@/components/mode-toggle";
 import { Link } from "@tanstack/react-router";
-import { MenuListType } from "@/types";
+import { menuList } from "@/mock/navigation";
+
 export function TopNavbar() {
-  const menuList: MenuListType[] = [
-    {
-      label: "Home",
-      icon: "Home",
-      route: "/#",
-    },
-    {
-      label: "Personal",
-      icon: "Personal",
-      route: "/personal",
-    },
-    {
-      label: "Tech Stack",
-      icon: "Tech",
-      route: "/tech-stack",
-    },
-    {
-      label: "About",
-      icon: "About",
-      route: "/#",
-    },
-  ];
   return (
     <main>
-      <nav className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
+      <nav className="flex items-center justify-between py-4 px-40">
+        <div className="flex items-center gap-2 ">
           <ModeToggle />
           <a className="text-xl fancy-font font-semibold tracking-wide">
             Mig's Development
