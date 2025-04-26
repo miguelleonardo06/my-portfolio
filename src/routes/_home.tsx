@@ -12,14 +12,20 @@ function HomeLayout() {
 
   return (
     <SidebarProvider>
-      <main className="w-full h-screen p-4 sm:px-48 sm:py-5">
-        {isDesktopLaptop && <TopNavbar />}
+      <main className="w-full h-screen">
+        {isDesktopLaptop && (
+          <div className="fixed z-20 backdrop-blur-md w-full ">
+            <TopNavbar />
+          </div>
+        )}
         {!isDesktopLaptop && (
           <>
-            <AppSideBar /> <SidebarTrigger />
+            <AppSideBar /> <SidebarTrigger className="fixed z-50" />
           </>
         )}
-        <Outlet />
+        <div className="p-4 sm:py-12 sm:px-10 md:px-20 lg:px-48">
+          <Outlet />
+        </div>
       </main>
     </SidebarProvider>
   );
