@@ -5,55 +5,10 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import { AboutMeType } from "@/types/index";
+import { aboutMeMock } from "@/mock/aboutMe";
+import { Button } from "./ui/button";
+import { Icons } from "./icons";
 export function MoreAboutMe() {
-  const aboutMeMock: AboutMeType[] = [
-    {
-      category: "Project",
-      title: "Personal Web Porfolio",
-      body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus vel itaque voluptate, asperiores voluptatem eius iste debitis repellat laborum cupiditate minima obcaecati similique doloremque accusamus nobis id possimus. Eos, odit.",
-    },
-    {
-      category: "Project",
-      title: "Car Rental",
-      body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus vel itaque voluptate, asperiores voluptatem eius iste debitis repellat laborum cupiditate minima obcaecati similique doloremque accusamus nobis id possimus. Eos, odit.",
-    },
-    {
-      category: "Project",
-      title: "Dental Reservation and Information Management",
-      body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus vel itaque voluptate, asperiores voluptatem eius iste debitis repellat laborum cupiditate minima obcaecati similique doloremque accusamus nobis id possimus. Eos, odit.",
-    },
-    {
-      category: "Hobby",
-      title: "Online Games",
-      body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus vel itaque voluptate, asperiores voluptatem eius iste debitis repellat laborum cupiditate minima obcaecati similique doloremque accusamus nobis id possimus. Eos, odit.",
-    },
-    {
-      category: "Hobby",
-      title: "Sleeping",
-      body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus vel itaque voluptate, asperiores voluptatem eius iste debitis repellat laborum cupiditate minima obcaecati similique doloremque accusamus nobis id possimus. Eos, odit.",
-    },
-    {
-      category: "Hobby",
-      title: "Watching Movies",
-      body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus vel itaque voluptate, asperiores voluptatem eius iste debitis repellat laborum cupiditate minima obcaecati similique doloremque accusamus nobis id possimus. Eos, odit.",
-    },
-    {
-      category: "Talent",
-      title: "Playing Guitar",
-      body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus vel itaque voluptate, asperiores voluptatem eius iste debitis repellat laborum cupiditate minima obcaecati similique doloremque accusamus nobis id possimus. Eos, odit.",
-    },
-    {
-      category: "Talent",
-      title: "Cooking",
-      body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus vel itaque voluptate, asperiores voluptatem eius iste debitis repellat laborum cupiditate minima obcaecati similique doloremque accusamus nobis id possimus. Eos, odit.",
-    },
-    {
-      category: "Talent",
-      title: "Driving",
-      body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus vel itaque voluptate, asperiores voluptatem eius iste debitis repellat laborum cupiditate minima obcaecati similique doloremque accusamus nobis id possimus. Eos, odit.",
-    },
-  ];
   return (
     <Tabs defaultValue="Project">
       <TabsList>
@@ -65,42 +20,72 @@ export function MoreAboutMe() {
         <div className="w-full sm:grid grid-cols-3 gap-3 ">
           {aboutMeMock
             .filter((aboutMe) => aboutMe.category == "Project")
-            .map((info, index) => (
-              <Card className="pt-6 pb-2" key={index}>
-                <CardContent className="space-y-2">
-                  <CardTitle>{info.title}</CardTitle>
-                  <CardDescription>{info.body}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+            .map((info, index) => {
+              const AboutIcon = Icons[info.icon as keyof typeof Icons];
+              return (
+                <Card className="pt-6 pb-2 my-4" key={index}>
+                  <CardContent className="space-y-2">
+                    <CardTitle className="flex gap-2">
+                      <AboutIcon height="18px" width="18px" />
+                      <h1>{info.title}</h1>
+                    </CardTitle>
+                    <CardDescription className="mt-4">
+                      <p>{info.body}</p>
+                      {info.view && (
+                        <div className="flex justify-end">
+                          <Button className="mt-4 px-10" asChild>
+                            <a href={info.view} target="_blank">
+                              View
+                            </a>
+                          </Button>
+                        </div>
+                      )}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              );
+            })}
         </div>
       </TabsContent>
       <TabsContent value="Hobby">
         <div className="w-full sm:grid grid-cols-3 gap-3 ">
           {aboutMeMock
             .filter((aboutMe) => aboutMe.category == "Hobby")
-            .map((info, index) => (
-              <Card className="pt-6 pb-2" key={index}>
-                <CardContent>
-                  <CardTitle>{info.title}</CardTitle>
-                  <CardDescription>{info.body}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+            .map((info, index) => {
+              const HobbyIcon = Icons[info.icon as keyof typeof Icons];
+              return (
+                <Card className="pt-6 pb-2 my-4" key={index}>
+                  <CardContent>
+                    <CardTitle>{info.title}</CardTitle>
+                    <CardDescription className="flex justify-center items-center my-4">
+                      <HobbyIcon className="h-full w-full" />
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              );
+            })}
         </div>
       </TabsContent>
       <TabsContent value="Talent">
         <div className="w-full sm:grid grid-cols-3 gap-3 ">
           {aboutMeMock
             .filter((aboutMe) => aboutMe.category == "Talent")
-            .map((info, index) => (
-              <Card className="pt-6 pb-2" key={index}>
-                <CardContent>
-                  <CardTitle>{info.title}</CardTitle>
-                  <CardDescription>{info.body}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+            .map((info, index) => {
+              const TalentIcon = Icons[info.icon as keyof typeof Icons];
+              return (
+                <Card className="pt-6 pb-2 my-4" key={index}>
+                  <CardContent>
+                    <CardTitle className="flex items-center gap-2">
+                      <TalentIcon height="18px" width="18px" />
+                      <h1>{info.title}</h1>
+                    </CardTitle>
+                    <CardDescription className="mt-4">
+                      {info.body}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              );
+            })}
         </div>
       </TabsContent>
     </Tabs>

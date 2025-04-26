@@ -96,3 +96,31 @@
     @apply bg-background text-foreground;
   }
 }
+@keyframes animateEntry {
+  from {
+    opacity: 0;
+    transform: translateX(-30px); /* start 30px to the left */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* end at original position */
+  }
+}
+
+.homeDialogAnimate {
+  animation: animateEntry 0.7s ease-in-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.homePictureAnimate {
+  animation: animateEntry 0.7s ease-in-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.homeDialogAnimate {
+  animation: animateEntry 0.7s ease-in-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}

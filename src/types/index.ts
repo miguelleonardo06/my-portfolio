@@ -13,7 +13,9 @@ export type OverviewInfoType = {
 export type AboutMeType = {
   category: string;
   title: string;
-  body: string;
+  body?: string;
+  view?: string;
+  icon: string;
 };
 
 export type TechStackType = {

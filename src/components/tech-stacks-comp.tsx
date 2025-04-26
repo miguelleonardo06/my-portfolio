@@ -19,7 +19,7 @@ export function TechStackHandler({ techData }: TechStackHandlerProp) {
       <div className="flex justify-end my-4">
         <FilterTechStack setFilterTech={setFilterTech} />
       </div>
-      <div className="grid sm:grid-cols-3 gap-4">
+      <div className="tech-container grid sm:grid-cols-3 gap-4">
         {filterTech && filterTech?.length > 0
           ? techData
               ?.filter((data) => data.category == filterTech)
@@ -46,7 +46,7 @@ export function TechStackHandler({ techData }: TechStackHandlerProp) {
               const TechstackIcon =
                 TechStackIcons[item.icon as keyof typeof TechStackIcons];
               return (
-                <Card key={item.tech_name}>
+                <Card className="" key={item.tech_name}>
                   <CardContent className="py-4">
                     <div className="w-full flex justify-center">
                       <img src={TechstackIcon} className="h-40  w-40 mb-3" />

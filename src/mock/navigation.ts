@@ -2,22 +2,22 @@ import { MenuListType } from "@/types";
 export const menuList: MenuListType[] = [
   {
     label: "Home",
-    icon: "Home",
+    icon: "House",
     route: "/#",
   },
   {
     label: "Personal",
-    icon: "Personal",
+    icon: "User",
     route: "/personal",
   },
   {
     label: "Tech Stack",
-    icon: "Tech",
+    icon: "Code",
     route: "/tech-stack",
   },
   {
     label: "About",
-    icon: "About",
+    icon: "CircleAlert",
     route: "/tech-stack#about_section",
   },
 ];

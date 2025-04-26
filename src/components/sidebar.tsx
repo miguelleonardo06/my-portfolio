@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/sidebar";
 import { ModeToggle } from "./mode-toggle";
 import { menuList } from "@/mock/navigation";
+import { Link } from "@tanstack/react-router";
+import { Icons } from "./icons";
 export function AppSideBar() {
   return (
     <Sidebar>
@@ -23,13 +25,21 @@ export function AppSideBar() {
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
-              {menuList.map((menu) => (
-                <SidebarMenuItem key={menu.label}>
-                  <SidebarMenuButton asChild>
-                    <a href={menu.route}>{menu.label}</a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              {menuList.map((menu) => {
+                const NavIcon = Icons[menu.icon as keyof typeof Icons];
+                return (
+                  <SidebarMenuItem key={menu.label}>
+                    <SidebarMenuButton className="hover:animate-bounce" asChild>
+                      <Link to={menu.route} key={menu.label}>
+                        <a href="" className="flex items-center gap-1">
+                          <NavIcon height="16px" width="16px" />
+                          {menu.label}
+                        </a>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

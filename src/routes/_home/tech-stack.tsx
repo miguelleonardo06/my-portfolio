@@ -5,7 +5,7 @@ import { TechStackHandler } from "@/components/tech-stacks-comp";
 import { TechStackType } from "@/types/index";
 import { Icons } from "@/components/icons";
 import { Button } from "@/components/ui/button";
-
+import myPicture from "@/assets/myPicture.png";
 export const Route = createFileRoute("/_home/tech-stack")({
   component: TechStackPage,
 });
@@ -71,15 +71,23 @@ const mockTechStackApi: TechStackType[] = [
     category: "back-end",
     body: "I am knowledgeable in relational databases using MySQL. I understand how to implement primary and foreign keys, and I can define constraints for better data integrity.",
   },
+  {
+    tech_name: "Postman",
+    icon: "postmanIcon",
+    category: "back-end",
+    body: "I am knowledgeable in testing APIS, using postman and use it in front-end development.",
+  },
 ];
 
 function TechStackPage() {
   return (
     <main className="p-4">
       <Card className="flex flex-col space-y-3 justify-center items-center h-screen bg-primary dark:bg-primary ">
-        <div className="animate-pulse bg-red-500  transition-colors duration-3000 p-6 rounded-full">
-          <img src="vite.svg" className="border-8 h-60 p-4 rounded-full" />
-        </div>
+        <img
+          src={myPicture}
+          className="border-8 h-[50%] w-[80%] sm:h-[60%] sm:w-[45%]  p-4 rounded-full animate-pulse  transition-colors bg-white dark:bg-primary "
+        />
+
         <div className="my-2 flex flex-col space-y-2 ">
           <h1 className="font-bold text-4xl text-slate-500 dark:text-slate-700">
             Miguel Leonardo

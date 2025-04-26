@@ -29,7 +29,7 @@ function IndexPage() {
           className="rounded-full mt-7"
         />
       </div>
-      <div className="flex flex-col justify-end sm:mb-10 ">
+      <div className="homeDialogAnimate flex flex-col justify-end sm:mb-10">
         <h1 className="text-4xl  sm:text-5xl header-font font-semibold tracking-wide mb-1 ">
           <span>Miguel Leonardo,</span>{" "}
           <span className="block sm:inline-block">at your Service</span>
@@ -58,7 +58,7 @@ function IndexPage() {
           </Button>
         </div>
       </div>
-      <div className="hidden sm:flex justify-center sm:justify-end items-start mb-3">
+      <div className="homePictureAnimate hidden sm:flex justify-center sm:justify-end items-start mb-3">
         <img
           src={myPicture}
           height="250px"

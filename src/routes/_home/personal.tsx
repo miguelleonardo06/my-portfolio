@@ -38,7 +38,7 @@ function PersonalPage() {
           <CardDescription className="font-thin inline">
             <p>{body.substring(1, 180) + "..."}</p>
             <Button
-              className="sm:mt-2"
+              className="mt-2 "
               onClick={() => {
                 setOpenModalKey(title);
               }}
@@ -62,33 +62,32 @@ function PersonalPage() {
       <div className=" grid sm:grid-cols-2">
         <SlideShowCarousel slideShowImages={["myPicture", "myPicture2"]} />
         <div className="pl-4 flex-col space-y-4">
-          <div>
+          <div className="my-4 sm:my-0">
             {overviewInfo({
               title: "My Background",
-              body: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
-            quos! Velit impedit eum, debitis mollitia sapiente labore
-            voluptatem, rerum voluptatibus a voluptate eos. Ipsum rerum placeat
-            ipsa! Beatae, placeat eligendi.... `,
+              body: ` I a'm  intermediate level web developer, I can do CRUD operation with API, design slightly complicated website, and familiarity with a trend framework and library, such as, ReactJS, Tailwindcss, Shadcn. With a basic knowledge in Backend using vanilla PHP`,
               icon: "circleUser",
             })}
           </div>
+
           <div>
             {overviewInfo({
               title: "My Education",
-              body: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
-            quos! Velit impedit eum, debitis mollitia sapiente labore
-            voluptatem, rerum voluptatibus a voluptate eos. Ipsum rerum placeat
-            ipsa! Beatae, placeat eligendi.`,
+              body: ` Primary Education
+                I completed my primary education at Dr. Juan F. Pascual Memorial School, where I built the foundation of my skills in reading, writing, and discovered my early interests and talents.
+
+                Secondary Education
+                I attended San Miguel National High School for my secondary education. This was where I experienced a lot of firsts—made real friends, hung out, learned life lessons, and even faced some academic challenges. It was a time of growth, both socially and personally.
+
+                College (2021 – Present)
+                I’m currently studying at Bulacan Agricultural State College. This is where I started learning how to write code, starting with C++ and JavaScript. I also explored web development using PHP. My college journey has been like a rollercoaster—there were moments I felt like I was on top of the world, and others where I struggled to find my footing. But through it all, I’ve kept learning and growing.`,
               icon: "bookOpenText",
             })}
           </div>
           <div>
             {overviewInfo({
-              title: "My Dream",
-              body: ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
-            quos! Velit impedit eum, debitis mollitia sapiente labore
-            voluptatem, rerum voluptatibus a voluptate eos. Ipsum rerum placeat
-            ipsa! Beatae, placeat eligendi.`,
+              title: "My On-the-Job-Training",
+              body: ` I was accepted as a front-end developer at Hiraya Technology Solutions, where we built dynamic and interactive web systems for various clients. This was my first time working with a JavaScript framework, and it’s where I got hands-on experience with React JS. I learned a lot during my time there—not just about coding, but also about best practices in building systems that focus on dynamic output and user interaction. Since we worked remotely, I also became comfortable using GitHub for version control and team collaboration. It was a valuable learning experience that helped shape my development skills.`,
               icon: "cloud",
             })}
           </div>
@@ -117,7 +116,7 @@ function SeeMoreModal({
     <Dialog open={isModalOpen} onOpenChange={setModalOpen}>
       <DialogContent>
         <DialogTitle>{title}</DialogTitle>
-        <DialogDescription>{body}</DialogDescription>
+        <DialogDescription className="text-sm">{body}</DialogDescription>
       </DialogContent>
     </Dialog>
   );

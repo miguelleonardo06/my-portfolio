@@ -20,7 +20,7 @@ function HomeLayout() {
         )}
         {!isDesktopLaptop && (
           <>
-            <AppSideBar /> <SidebarTrigger />
+            <AppSideBar /> <SidebarTrigger className="fixed z-50" />
           </>
         )}
         <div className="p-4 sm:py-12 sm:px-10 md:px-20 lg:px-48">
