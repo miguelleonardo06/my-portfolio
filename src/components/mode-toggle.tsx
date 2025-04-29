@@ -5,35 +5,39 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "./ui/button";
 import { Moon } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-type ThemeType = "dark" | "light" | undefined;
+type ThemeType = "dark" | "light";
 
 export function ModeToggle() {
-  const [theme, setTheme] = useState<ThemeType>(
-    (localStorage.getItem("theme") as ThemeType) || undefined
-  );
+  const appTheme = (localStorage.getItem("app-theme") as ThemeType) || "light";
+  const [theme, setTheme] = useState<ThemeType>(appTheme);
 
   useEffect(() => {
-    if (theme) {
-      if (theme == "dark") {
-        document.body.classList.add(theme);
-        document.body.classList.remove("light");
-      } else {
-        document.body.classList.add(theme);
+    const storeTheme = () => {
+      localStorage.setItem("app-theme", theme);
+
+      const getAppTheme = localStorage.getItem("app-theme");
+      console.log(getAppTheme);
+      if (getAppTheme == "light") {
+        document.body.classList.add("light");
         document.body.classList.remove("dark");
+      } else {
+        document.body.classList.add("dark");
+        document.body.classList.remove("light");
       }
-    }
+    };
+    storeTheme();
   }, [theme]);
 
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button className="rounded-full w-fit">
+        <Button className="rounded-full w-fit z-50">
           <Moon height="17px" width="17px" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="flex flex-col w-fit">
+      <PopoverContent className="flex flex-col w-fit z-50">
         <Button type="button" onClick={() => setTheme("dark")}>
           Dark
         </Button>
