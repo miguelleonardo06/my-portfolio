@@ -37,7 +37,7 @@ export function ModeToggle() {
           <Moon height="17px" width="17px" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="flex flex-col w-fit">
+      <PopoverContent className="flex flex-col w-fit z-50">
         <Button type="button" onClick={() => setTheme("dark")}>
           Dark
         </Button>
