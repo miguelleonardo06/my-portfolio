@@ -8,9 +8,11 @@ export function TopNavbar() {
       <nav className="flex items-center justify-between py-4 px-40">
         <div className="flex items-center gap-2 ">
           <ModeToggle />
-          <a className="text-xl fancy-font font-semibold tracking-wide">
-            Mig's Development
-          </a>
+          <Link to={"/"}>
+            <a className="text-xl fancy-font font-semibold tracking-wide">
+              Mig's Development
+            </a>
+          </Link>
         </div>
         <ul className="*:text-sm flex gap-10">
           {menuList.map((menu) => {
