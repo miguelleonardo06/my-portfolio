@@ -81,7 +81,7 @@ const mockTechStackApi: TechStackType[] = [
 
 function TechStackPage() {
   return (
-    <main className="p-4">
+    <main className="w-full h-full py-8">
       <Card className="flex flex-col space-y-3 justify-center items-center h-screen bg-primary dark:bg-primary ">
         <img
           src={myPicture}
